@@ -69,7 +69,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     compileOnly rootProject.findProject(":foundation_fluttify")
     // flutter plugin dependency
-    compileOnly rootProject.findProject(":amap_core_fluttify")
+    implementation rootProject.findProject(":amap_core_fluttify")
     // sdk dependency
     api 'com.amap.api:location:5.2.0'
 }
