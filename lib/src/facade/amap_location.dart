@@ -24,7 +24,7 @@ class AmapLocation with _Holder, _Community, _Pro {
 }
 
 mixin _Community on _Holder {
-  Future<void> init({@required String iosKey}) {
+  Future<void> init({required String iosKey}) {
     return platform(
       android: (pool) async {
         // 获取上下文, 这里获取的是Application
@@ -35,7 +35,7 @@ mixin _Community on _Holder {
             .create__android_content_Context(context);
       },
       ios: (pool) async {
-        assert(iosKey != null, '请设置iosKey!');
+        // assert(iosKey != null, '请设置iosKey!');
         await AmapCore.init(iosKey);
         _iosClient ??= await AMapLocationManager.create__();
       },
