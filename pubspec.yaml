@@ -17,7 +17,7 @@ dependencies:
 
   amap_core_fluttify:
     git:
-      url: git@github.com:mature-road/dl_core_amap.git
+      url: https://github.com/mature-road/dl_core_amap.git
       ref: 06cb4cf1ab787dc4deeca5f5fac2fab05fe6ff87
 
 dev_dependencies:
