@@ -18,7 +18,7 @@ dependencies:
   amap_core_fluttify:
     git:
       url: https://github.com/mature-road/dl_core_amap.git
-      ref: e86db467c2fe10d58d62d320d37685c1000de022
+      ref: ad6799261983ab263be9501823685c1a0971047e
 
 dev_dependencies:
   flutter_test:
