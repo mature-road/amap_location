@@ -7,22 +7,22 @@ import 'package:flutter/cupertino.dart';
 /// 定位结果 model
 class Location {
   Location({
-    @required this.address,
-    @required this.latLng,
-    @required this.altitude,
-    @required this.bearing,
-    @required this.country,
-    @required this.province,
-    @required this.city,
-    @required this.cityCode,
-    @required this.adCode,
-    @required this.district,
-    @required this.poiName,
-    @required this.street,
-    @required this.streetNumber,
-    @required this.aoiName,
-    @required this.accuracy,
-    @required this.speed,
+    required this.address,
+    required this.latLng,
+    required this.altitude,
+    required this.bearing,
+    required this.country,
+    required this.province,
+    required this.city,
+    required this.cityCode,
+    required this.adCode,
+    required this.district,
+    required this.poiName,
+    required this.street,
+    required this.streetNumber,
+    required this.aoiName,
+    required this.accuracy,
+    required this.speed,
   });
 
   /// 地址全称
@@ -82,18 +82,18 @@ class Location {
 /// 后台定位notification
 class BackgroundNotification {
   BackgroundNotification({
-    @required this.contentTitle,
-    @required this.contentText,
+    required this.contentTitle,
+    required this.contentText,
     this.when,
-    @required this.channelId,
-    @required this.channelName,
+    required this.channelId,
+    required this.channelName,
     this.enableLights = true,
     this.showBadge = true,
   });
 
   String contentTitle;
   String contentText;
-  int when;
+  int? when;
   String channelId;
   String channelName;
   bool enableLights;
@@ -101,10 +101,10 @@ class BackgroundNotification {
 }
 
 class GeoFenceEvent {
-  final String customId;
-  final String fenceId;
-  final GeoFenceStatus status;
-  final GeoFence genFence;
+  final String? customId;
+  final String? fenceId;
+  final GeoFenceStatus? status;
+  final GeoFence? genFence;
 
   GeoFenceEvent({
     this.customId,
@@ -120,8 +120,8 @@ class GeoFenceEvent {
 }
 
 class GeoFence {
-  final com_amap_api_fence_GeoFence androidModel;
-  final AMapGeoFenceRegion iosModel;
+  final com_amap_api_fence_GeoFence? androidModel;
+  final AMapGeoFenceRegion? iosModel;
 
   GeoFence.android(this.androidModel) : this.iosModel = null;
 
@@ -129,8 +129,8 @@ class GeoFence {
 
   Future<String> get customId async {
     return platform(
-      android: (pool) => androidModel.getCustomId(),
-      ios: (pool) => iosModel.get_customID(),
+      android: (pool) => androidModel!.getCustomId(),
+      ios: (pool) => iosModel!.get_customID(),
     );
   }
 }

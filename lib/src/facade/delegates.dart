@@ -19,7 +19,7 @@ class _AndroidLocationDelegate extends java_lang_Object
     with
         com_amap_api_location_AMapLocationListener,
         com_amap_api_fence_GeoFenceListener {
-  _OnAndroidLocationChanged _onLocationChanged;
+  _OnAndroidLocationChanged? _onLocationChanged;
 
   @override
   Future<void> onLocationChanged(
@@ -27,7 +27,7 @@ class _AndroidLocationDelegate extends java_lang_Object
   ) async {
     super.onLocationChanged(var1);
     if (_onLocationChanged != null) {
-      _onLocationChanged(var1);
+      _onLocationChanged!(var1);
     }
   }
 
@@ -42,9 +42,9 @@ class _AndroidLocationDelegate extends java_lang_Object
 
 class _IOSLocationDelegate extends NSObject
     with AMapLocationManagerDelegate, AMapGeoFenceManagerDelegate {
-  _OnIOSLocationChanged _onLocationChanged;
-  _OnRequireAlwaysAuth _onRequireAlwaysAuth;
-  _OnGeoFenceStatusChanged _onGeoFenceStatusChanged;
+  _OnIOSLocationChanged? _onLocationChanged;
+  _OnRequireAlwaysAuth? _onRequireAlwaysAuth;
+  _OnGeoFenceStatusChanged? _onGeoFenceStatusChanged;
 
   @override
   Future<void> amapLocationManager_didUpdateLocation_reGeocode(
@@ -58,7 +58,7 @@ class _IOSLocationDelegate extends NSObject
       reGeocode,
     );
     if (_onLocationChanged != null) {
-      _onLocationChanged(location, reGeocode);
+      _onLocationChanged!(location, reGeocode);
     }
   }
 
@@ -69,7 +69,7 @@ class _IOSLocationDelegate extends NSObject
   ) async {
     super.amapLocationManager_doRequireLocationAuth(manager, locationManager);
     if (_onRequireAlwaysAuth != null) {
-      _onRequireAlwaysAuth(locationManager);
+      _onRequireAlwaysAuth!(locationManager);
     }
   }
 
@@ -83,7 +83,7 @@ class _IOSLocationDelegate extends NSObject
     super.amapGeoFenceManager_didGeoFencesStatusChangedForRegion_customID_error(
         manager, region, customID, error);
     if (_onGeoFenceStatusChanged != null) {
-      _onGeoFenceStatusChanged(region, customID, error);
+      _onGeoFenceStatusChanged!(region, customID, error);
     }
   }
 }

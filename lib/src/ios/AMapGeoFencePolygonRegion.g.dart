@@ -23,11 +23,11 @@ class AMapGeoFencePolygonRegion extends AMapGeoFenceRegion with NSCopying {
   //endregion
 
   //region creators
-  static Future<AMapGeoFencePolygonRegion> create__({ bool init = true /* ios only */ }) async {
+  static Future<Future> create__({ bool init = true /* ios only */ }) async {
     return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapGeoFencePolygonRegion', {'init': init});
   }
   
-  static Future<List<AMapGeoFencePolygonRegion>> create_batch__(int length, { bool init = true /* ios only */ }) async {
+  static Future<Future<List<AMapGeoFencePolygonRegion>?>> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
@@ -37,9 +37,9 @@ class AMapGeoFencePolygonRegion extends AMapGeoFenceRegion with NSCopying {
   //endregion
 
   //region getters
-  Future<List<CLLocationCoordinate2D>> get_coordinates() async {
+  Future<List<CLLocationCoordinate2D>?> get_coordinates() async {
     final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("AMapGeoFencePolygonRegion::get_coordinates", {'__this__': this});
-    return (__result__ as List)?.cast<CLLocationCoordinate2D>();
+    return (__result__ as List).cast<CLLocationCoordinate2D>();
   }
   
   Future<int> get_count() async {
@@ -67,7 +67,7 @@ extension AMapGeoFencePolygonRegion_Batch on List<AMapGeoFencePolygonRegion> {
   //region getters
   Future<List<List<CLLocationCoordinate2D>>> get_coordinates_batch() async {
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod("AMapGeoFencePolygonRegion::get_coordinates_batch", [for (final __item__ in this) {'__this__': __item__}]);
-    return (resultBatch as List).cast<List<CLLocationCoordinate2D>>().map((__result__) => (__result__ as List)?.cast<CLLocationCoordinate2D>()).toList();
+    return (resultBatch as List).cast<List<CLLocationCoordinate2D>>().map((__result__) => (__result__ as List).cast<CLLocationCoordinate2D>()).toList();
   }
   
   Future<List<int>> get_count_batch() async {

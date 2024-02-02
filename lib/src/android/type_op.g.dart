@@ -14,7 +14,7 @@ import 'package:core_location_fluttify/core_location_fluttify.dart';
 
 // ignore_for_file: non_constant_identifier_names, camel_case_types, missing_return, unused_import
 // type check
-Future<bool> AmapLocationFluttifyAndroidIs<T>(dynamic __this__) async {
+Future<bool?> AmapLocationFluttifyAndroidIs<T>(dynamic __this__) async {
   final typeName = T.toString();
   if (RegExp(r'^(List<)?(String|int|double)(>)?|(Map<String,(String|int|double)>)$').hasMatch(typeName)) {
     return __this__ is T;

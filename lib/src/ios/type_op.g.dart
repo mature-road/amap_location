@@ -14,7 +14,7 @@ import 'package:core_location_fluttify/core_location_fluttify.dart';
 
 // ignore_for_file: non_constant_identifier_names, camel_case_types, missing_return, unused_import
 // type check
-Future<bool> AmapLocationFluttifyIOSIs<T>(dynamic __this__) async {
+Future<bool?> AmapLocationFluttifyIOSIs<T>(dynamic __this__) async {
   final typeName = T.toString();
   if (RegExp(r'^(List<)?(String|int|double)(>)?|(Map<String,(String|int|double)>)$').hasMatch(typeName)) {
     return __this__ is T;
@@ -147,6 +147,7 @@ Future<bool> AmapLocationFluttifyIOSIs<T>(dynamic __this__) async {
     final result = await kAmapLocationFluttifyChannel.invokeMethod('RefClass::isKindOfNSOperation', {'__this__': __this__});
     return result;
   }
+  return null;
 }
 
 // type cast

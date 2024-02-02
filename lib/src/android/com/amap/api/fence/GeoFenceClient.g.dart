@@ -25,11 +25,11 @@ class com_amap_api_fence_GeoFenceClient extends java_lang_Object  {
   //endregion
 
   //region creators
-  static Future<com_amap_api_fence_GeoFenceClient> create__android_content_Context(android_content_Context var1) async {
+  static Future<Future> create__android_content_Context(android_content_Context var1) async {
     return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_fence_GeoFenceClient__android_content_Context', {"var1": var1});
   }
   
-  static Future<List<com_amap_api_fence_GeoFenceClient>> create_batch__android_content_Context(List<android_content_Context> var1) async {
+  static Future<Future<List<com_amap_api_fence_GeoFenceClient>?>> create_batch__android_content_Context(List<android_content_Context> var1) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
@@ -111,7 +111,7 @@ class com_amap_api_fence_GeoFenceClient extends java_lang_Object  {
                 break;
             }
           } catch (e) {
-            debugPrint(e);
+            debugPrint(e as String?);
             rethrow;
           }
         });
@@ -252,7 +252,7 @@ class com_amap_api_fence_GeoFenceClient extends java_lang_Object  {
     // handle native call
   
   
-    return (__result__ as List)?.cast<com_amap_api_fence_GeoFence>();
+    return (__result__ as List).cast<com_amap_api_fence_GeoFence>();
   }
   
   
@@ -468,7 +468,7 @@ extension com_amap_api_fence_GeoFenceClient_Batch on List<com_amap_api_fence_Geo
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.fence.GeoFenceClient::getAllGeoFence_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<List<com_amap_api_fence_GeoFence>>().map((__result__) => (__result__ as List)?.cast<com_amap_api_fence_GeoFence>()).toList();
+    return (resultBatch as List).cast<List<com_amap_api_fence_GeoFence>>().map((__result__) => (__result__ as List).cast<com_amap_api_fence_GeoFence>()).toList();
   }
   
   

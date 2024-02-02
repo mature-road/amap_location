@@ -23,11 +23,11 @@ class AMapLocationManager extends NSObject  {
   //endregion
 
   //region creators
-  static Future<AMapLocationManager> create__({ bool init = true /* ios only */ }) async {
+  static Future<Future> create__({ bool init = true /* ios only */ }) async {
     return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapLocationManager', {'init': init});
   }
   
-  static Future<List<AMapLocationManager>> create_batch__(int length, { bool init = true /* ios only */ }) async {
+  static Future<Future<List<AMapLocationManager>?>> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
@@ -205,7 +205,7 @@ class AMapLocationManager extends NSObject  {
               break;
           }
         } catch (e) {
-          debugPrint(e);
+          debugPrint(e as String?);
           rethrow;
         }
       });
@@ -366,7 +366,7 @@ class AMapLocationManager extends NSObject  {
                 break;
             }
           } catch (e) {
-            debugPrint(e);
+            debugPrint(e as String?);
             rethrow;
           }
         });

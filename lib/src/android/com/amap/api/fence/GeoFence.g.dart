@@ -44,11 +44,11 @@ class com_amap_api_fence_GeoFence extends java_lang_Object with android_os_Parce
   //endregion
 
   //region creators
-  static Future<com_amap_api_fence_GeoFence> create__() async {
+  static Future<Future> create__() async {
     return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_fence_GeoFence__', );
   }
   
-  static Future<List<com_amap_api_fence_GeoFence>> create_batch__(int length) async {
+  static Future<Future<List<com_amap_api_fence_GeoFence>?>> create_batch__(int length) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
@@ -284,7 +284,7 @@ class com_amap_api_fence_GeoFence extends java_lang_Object with android_os_Parce
     // handle native call
   
   
-    return (__result__ as List)?.cast<com_amap_api_fence_DistrictItem>();
+    return (__result__ as List).cast<com_amap_api_fence_DistrictItem>();
   }
   
   
@@ -845,7 +845,7 @@ extension com_amap_api_fence_GeoFence_Batch on List<com_amap_api_fence_GeoFence>
     final resultBatch = await kAmapLocationFluttifyChannel.invokeMethod('com.amap.api.fence.GeoFence::getDistrictItemList_batch', [for (int __i__ = 0; __i__ < this.length; __i__++) {"__this__": this[__i__]}]);
   
   
-    return (resultBatch as List).cast<List<com_amap_api_fence_DistrictItem>>().map((__result__) => (__result__ as List)?.cast<com_amap_api_fence_DistrictItem>()).toList();
+    return (resultBatch as List).cast<List<com_amap_api_fence_DistrictItem>>().map((__result__) => (__result__ as List).cast<com_amap_api_fence_DistrictItem>()).toList();
   }
   
   
