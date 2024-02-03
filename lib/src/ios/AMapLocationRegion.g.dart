@@ -24,14 +24,14 @@ class AMapLocationRegion extends NSObject with NSCopying {
 
   //region creators
   static Future<AMapLocationRegion> create__({ bool init = true /* ios only */ }) async {
-    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapLocationRegion', {'init': init});
+    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapLocationRegion', {'init': init}) as Future<AMapLocationRegion>;
   }
   
   static Future<List<AMapLocationRegion>> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    return kAmapLocationFluttifyChannel.invokeListMethod<AMapLocationRegion>('ObjectFactory::create_batchAMapLocationRegion', {'length': length, 'init': init});
+    return kAmapLocationFluttifyChannel.invokeListMethod<AMapLocationRegion>('ObjectFactory::create_batchAMapLocationRegion', {'length': length, 'init': init}) as Future<List<AMapLocationRegion>>;
   }
   
   //endregion
