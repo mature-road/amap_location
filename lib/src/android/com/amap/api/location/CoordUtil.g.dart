@@ -23,15 +23,15 @@ class com_amap_api_location_CoordUtil extends java_lang_Object  {
   //endregion
 
   //region creators
-  static Future<Future> create__() async {
-    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_location_CoordUtil__', );
+  static Future<com_amap_api_location_CoordUtil> create__() async {
+    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_location_CoordUtil__', ) as Future<com_amap_api_location_CoordUtil>;
   }
   
-  static Future<Future<List<com_amap_api_location_CoordUtil>?>> create_batch__(int length) async {
+  static Future<List<com_amap_api_location_CoordUtil>> create_batch__(int length) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    return kAmapLocationFluttifyChannel.invokeListMethod<com_amap_api_location_CoordUtil>('ObjectFactory::create_batchcom_amap_api_location_CoordUtil__', {'length': length});
+    return kAmapLocationFluttifyChannel.invokeListMethod<com_amap_api_location_CoordUtil>('ObjectFactory::create_batchcom_amap_api_location_CoordUtil__', {'length': length}) as  Future<List<com_amap_api_location_CoordUtil>>;
   }
   
   //endregion

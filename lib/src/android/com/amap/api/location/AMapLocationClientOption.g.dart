@@ -23,15 +23,15 @@ class com_amap_api_location_AMapLocationClientOption extends java_lang_Object wi
   //endregion
 
   //region creators
-  static Future<Future> create__() async {
-    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_location_AMapLocationClientOption__', );
+  static Future<com_amap_api_location_AMapLocationClientOption> create__() async {
+    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_location_AMapLocationClientOption__', ) as Future<com_amap_api_location_AMapLocationClientOption>;
   }
   
-  static Future<Future<List<com_amap_api_location_AMapLocationClientOption>?>> create_batch__(int length) async {
+  static Future<List<com_amap_api_location_AMapLocationClientOption>> create_batch__(int length) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    return kAmapLocationFluttifyChannel.invokeListMethod<com_amap_api_location_AMapLocationClientOption>('ObjectFactory::create_batchcom_amap_api_location_AMapLocationClientOption__', {'length': length});
+    return kAmapLocationFluttifyChannel.invokeListMethod<com_amap_api_location_AMapLocationClientOption>('ObjectFactory::create_batchcom_amap_api_location_AMapLocationClientOption__', {'length': length}) as Future<List<com_amap_api_location_AMapLocationClientOption>>;
   }
   
   //endregion

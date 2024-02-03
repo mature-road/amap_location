@@ -23,15 +23,15 @@ class AMapGeoFenceManager extends NSObject  {
   //endregion
 
   //region creators
-  static Future<Future> create__({ bool init = true /* ios only */ }) async {
-    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapGeoFenceManager', {'init': init});
+  static Future<AMapGeoFenceManager> create__({ bool init = true /* ios only */ }) async {
+    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapGeoFenceManager', {'init': init}) as Future<AMapGeoFenceManager>;
   }
   
-  static Future<Future<List<AMapGeoFenceManager>?>> create_batch__(int length, { bool init = true /* ios only */ }) async {
+  static Future<List<AMapGeoFenceManager>> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    return kAmapLocationFluttifyChannel.invokeListMethod<AMapGeoFenceManager>('ObjectFactory::create_batchAMapGeoFenceManager', {'length': length, 'init': init});
+    return kAmapLocationFluttifyChannel.invokeListMethod<AMapGeoFenceManager>('ObjectFactory::create_batchAMapGeoFenceManager', {'length': length, 'init': init}) as Future<List<AMapGeoFenceManager>>;
   }
   
   //endregion
@@ -93,7 +93,7 @@ class AMapGeoFenceManager extends NSObject  {
               }
           
               // handle the native call
-              delegate.amapGeoFenceManager_didGeoFencesStatusChangedForRegion_customID_error(args['manager'], args['region'], args['customID'], args['error']);
+              delegate?.amapGeoFenceManager_didGeoFencesStatusChangedForRegion_customID_error(args['manager'], args['region'], args['customID'], args['error']);
               break;
             default:
               break;

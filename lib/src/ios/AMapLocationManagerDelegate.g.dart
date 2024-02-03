@@ -27,42 +27,40 @@ mixin AMapLocationManagerDelegate on NSObject {
   
 
   @mustCallSuper
-  Future<void> amapLocationManager_doRequireLocationAuth(AMapLocationManager manager, CLLocationManager locationManager) async {}
+  Future<void>? amapLocationManager_doRequireLocationAuth(AMapLocationManager manager, CLLocationManager locationManager) {}
   
   @mustCallSuper
-  Future<void> amapLocationManager_didFailWithError(AMapLocationManager manager, NSError error) async {}
+  Future<void>? amapLocationManager_didFailWithError(AMapLocationManager manager, NSError error) {}
   
   @mustCallSuper
-  Future<void> amapLocationManager_didUpdateLocation(AMapLocationManager manager, CLLocation location) async {}
+  Future<void>? amapLocationManager_didUpdateLocation(AMapLocationManager manager, CLLocation location) {}
   
   @mustCallSuper
-  Future<void> amapLocationManager_didUpdateLocation_reGeocode(AMapLocationManager manager, CLLocation location, AMapLocationReGeocode reGeocode) async {}
+  Future<void>? amapLocationManager_didUpdateLocation_reGeocode(AMapLocationManager manager, CLLocation location, AMapLocationReGeocode reGeocode) {}
   
   @mustCallSuper
-  Future<void> amapLocationManager_didChangeAuthorizationStatus(AMapLocationManager manager, CLAuthorizationStatus status) async {}
+  Future<void>? amapLocationManager_didChangeAuthorizationStatus(AMapLocationManager manager, CLAuthorizationStatus status) {}
   
   @mustCallSuper
-  Future<bool?> amapLocationManagerShouldDisplayHeadingCalibration(AMapLocationManager manager) async {
-    return null;
-  }
+  Future<bool>? amapLocationManagerShouldDisplayHeadingCalibration(AMapLocationManager manager) {}
   
   @mustCallSuper
-  Future<void> amapLocationManager_didUpdateHeading(AMapLocationManager manager, CLHeading newHeading)async{}
+  Future<void>? amapLocationManager_didUpdateHeading(AMapLocationManager manager, CLHeading newHeading) {}
   
   @mustCallSuper
-  Future<void> amapLocationManager_didStartMonitoringForRegion(AMapLocationManager manager, AMapLocationRegion region)async {}
+  Future<void>? amapLocationManager_didStartMonitoringForRegion(AMapLocationManager manager, AMapLocationRegion region) {}
   
   @mustCallSuper
-  Future<void> amapLocationManager_didEnterRegion(AMapLocationManager manager, AMapLocationRegion region)async {}
+  Future<void>? amapLocationManager_didEnterRegion(AMapLocationManager manager, AMapLocationRegion region) {}
   
   @mustCallSuper
-  Future<void> amapLocationManager_didExitRegion(AMapLocationManager manager, AMapLocationRegion region) async {}
+  Future<void>? amapLocationManager_didExitRegion(AMapLocationManager manager, AMapLocationRegion region) {}
   
   @mustCallSuper
-  Future<void> amapLocationManager_didDetermineState_forRegion(AMapLocationManager manager, AMapLocationRegionState state, AMapLocationRegion region) async {}
+  Future<void>? amapLocationManager_didDetermineState_forRegion(AMapLocationManager manager, AMapLocationRegionState state, AMapLocationRegion region) {}
   
   @mustCallSuper
-  Future<void> amapLocationManager_monitoringDidFailForRegion_withError(AMapLocationManager manager, AMapLocationRegion region, NSError error) async {}
+  Future<void>? amapLocationManager_monitoringDidFailForRegion_withError(AMapLocationManager manager, AMapLocationRegion region, NSError error) {}
   
 }
 

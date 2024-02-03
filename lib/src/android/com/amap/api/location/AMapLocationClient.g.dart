@@ -23,26 +23,26 @@ class com_amap_api_location_AMapLocationClient extends java_lang_Object  {
   //endregion
 
   //region creators
-  static Future<Future> create__android_content_Context(android_content_Context var1) async {
-    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_location_AMapLocationClient__android_content_Context', {"var1": var1});
+  static Future<com_amap_api_location_AMapLocationClient> create__android_content_Context(android_content_Context var1) async {
+    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_location_AMapLocationClient__android_content_Context', {"var1": var1}) as Future<com_amap_api_location_AMapLocationClient>;
   }
   
-  static Future<Future> create__android_content_Context__android_content_Intent(android_content_Context var1, android_content_Intent var2) async {
-    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_location_AMapLocationClient__android_content_Context__android_content_Intent', {"var1": var1, "var2": var2});
+  static Future<com_amap_api_location_AMapLocationClient> create__android_content_Context__android_content_Intent(android_content_Context var1, android_content_Intent var2) async {
+    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_location_AMapLocationClient__android_content_Context__android_content_Intent', {"var1": var1, "var2": var2}) as Future<com_amap_api_location_AMapLocationClient>;
   }
   
-  static Future<Future<List<com_amap_api_location_AMapLocationClient>?>> create_batch__android_content_Context(List<android_content_Context> var1) async {
+  static Future<List<com_amap_api_location_AMapLocationClient>> create_batch__android_content_Context(List<android_content_Context> var1) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    return kAmapLocationFluttifyChannel.invokeListMethod<com_amap_api_location_AMapLocationClient>('ObjectFactory::create_batchcom_amap_api_location_AMapLocationClient__android_content_Context', [for (int __i__ = 0; __i__ < var1.length; __i__++) {"var1": var1[__i__]}]);
+    return kAmapLocationFluttifyChannel.invokeListMethod<com_amap_api_location_AMapLocationClient>('ObjectFactory::create_batchcom_amap_api_location_AMapLocationClient__android_content_Context', [for (int __i__ = 0; __i__ < var1.length; __i__++) {"var1": var1[__i__]}]) as Future<List<com_amap_api_location_AMapLocationClient>>;
   }
   
-  static Future<Future<List<com_amap_api_location_AMapLocationClient>?>> create_batch__android_content_Context__android_content_Intent(List<android_content_Context> var1, List<android_content_Intent> var2) async {
+  static Future<List<com_amap_api_location_AMapLocationClient>> create_batch__android_content_Context__android_content_Intent(List<android_content_Context> var1, List<android_content_Intent> var2) async {
     if (var1.length != var2.length) {
       return Future.error('all args must have same length!');
     }
-    return kAmapLocationFluttifyChannel.invokeListMethod<com_amap_api_location_AMapLocationClient>('ObjectFactory::create_batchcom_amap_api_location_AMapLocationClient__android_content_Context__android_content_Intent', [for (int __i__ = 0; __i__ < var1.length; __i__++) {"var1": var1[__i__], "var2": var2[__i__]}]);
+    return kAmapLocationFluttifyChannel.invokeListMethod<com_amap_api_location_AMapLocationClient>('ObjectFactory::create_batchcom_amap_api_location_AMapLocationClient__android_content_Context__android_content_Intent', [for (int __i__ = 0; __i__ < var1.length; __i__++) {"var1": var1[__i__], "var2": var2[__i__]}]) as Future<List<com_amap_api_location_AMapLocationClient>>;
   }
   
   //endregion

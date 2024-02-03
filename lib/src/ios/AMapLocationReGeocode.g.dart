@@ -23,15 +23,15 @@ class AMapLocationReGeocode extends NSObject with NSCoding, NSCopying {
   //endregion
 
   //region creators
-  static Future<Future> create__({ bool init = true /* ios only */ }) async {
-    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapLocationReGeocode', {'init': init});
+  static Future<AMapLocationReGeocode> create__({ bool init = true /* ios only */ }) async {
+    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapLocationReGeocode', {'init': init}) as Future<AMapLocationReGeocode> ;
   }
   
-  static Future<Future<List<AMapLocationReGeocode>?>> create_batch__(int length, { bool init = true /* ios only */ }) async {
+  static Future<List<AMapLocationReGeocode>> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    return kAmapLocationFluttifyChannel.invokeListMethod<AMapLocationReGeocode>('ObjectFactory::create_batchAMapLocationReGeocode', {'length': length, 'init': init});
+    return kAmapLocationFluttifyChannel.invokeListMethod<AMapLocationReGeocode>('ObjectFactory::create_batchAMapLocationReGeocode', {'length': length, 'init': init}) as  Future<List<AMapLocationReGeocode>>;
   }
   
   //endregion

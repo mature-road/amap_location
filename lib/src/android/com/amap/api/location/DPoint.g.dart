@@ -23,26 +23,26 @@ class com_amap_api_location_DPoint extends java_lang_Object with android_os_Parc
   //endregion
 
   //region creators
-  static Future<Future> create__() async {
-    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_location_DPoint__', );
+  static Future<com_amap_api_location_DPoint> create__() async {
+    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_location_DPoint__', ) as Future<com_amap_api_location_DPoint>;
   }
   
-  static Future<Future> create__double__double(double var1, double var3) async {
-    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_location_DPoint__double__double', {"var1": var1, "var3": var3});
+  static Future<com_amap_api_location_DPoint> create__double__double(double var1, double var3) async {
+    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createcom_amap_api_location_DPoint__double__double', {"var1": var1, "var3": var3}) as Future<com_amap_api_location_DPoint>;
   }
   
-  static Future<Future<List<com_amap_api_location_DPoint>?>> create_batch__(int length) async {
+  static Future<List<com_amap_api_location_DPoint>> create_batch__(int length) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    return kAmapLocationFluttifyChannel.invokeListMethod<com_amap_api_location_DPoint>('ObjectFactory::create_batchcom_amap_api_location_DPoint__', {'length': length});
+    return kAmapLocationFluttifyChannel.invokeListMethod<com_amap_api_location_DPoint>('ObjectFactory::create_batchcom_amap_api_location_DPoint__', {'length': length}) as Future<List<com_amap_api_location_DPoint>>;
   }
   
-  static Future<Future<List<com_amap_api_location_DPoint>?>> create_batch__double__double(List<double> var1, List<double> var3) async {
+  static Future<List<com_amap_api_location_DPoint>> create_batch__double__double(List<double> var1, List<double> var3) async {
     if (var1.length != var3.length) {
       return Future.error('all args must have same length!');
     }
-    return kAmapLocationFluttifyChannel.invokeListMethod<com_amap_api_location_DPoint>('ObjectFactory::create_batchcom_amap_api_location_DPoint__double__double', [for (int __i__ = 0; __i__ < var1.length; __i__++) {"var1": var1[__i__], "var3": var3[__i__]}]);
+    return kAmapLocationFluttifyChannel.invokeListMethod<com_amap_api_location_DPoint>('ObjectFactory::create_batchcom_amap_api_location_DPoint__double__double', [for (int __i__ = 0; __i__ < var1.length; __i__++) {"var1": var1[__i__], "var3": var3[__i__]}]) as Future<List<com_amap_api_location_DPoint>>;
   }
   
   //endregion

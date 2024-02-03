@@ -23,21 +23,21 @@ class AMapGeoFencePolygonRegion extends AMapGeoFenceRegion with NSCopying {
   //endregion
 
   //region creators
-  static Future<Future> create__({ bool init = true /* ios only */ }) async {
-    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapGeoFencePolygonRegion', {'init': init});
+  static Future<AMapGeoFencePolygonRegion> create__({ bool init = true /* ios only */ }) async {
+    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapGeoFencePolygonRegion', {'init': init}) as Future<AMapGeoFencePolygonRegion>;
   }
   
-  static Future<Future<List<AMapGeoFencePolygonRegion>?>> create_batch__(int length, { bool init = true /* ios only */ }) async {
+  static Future<List<AMapGeoFencePolygonRegion>> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    return kAmapLocationFluttifyChannel.invokeListMethod<AMapGeoFencePolygonRegion>('ObjectFactory::create_batchAMapGeoFencePolygonRegion', {'length': length, 'init': init});
+    return kAmapLocationFluttifyChannel.invokeListMethod<AMapGeoFencePolygonRegion>('ObjectFactory::create_batchAMapGeoFencePolygonRegion', {'length': length, 'init': init}) as Future<List<AMapGeoFencePolygonRegion>>;
   }
   
   //endregion
 
   //region getters
-  Future<List<CLLocationCoordinate2D>?> get_coordinates() async {
+  Future<List<CLLocationCoordinate2D>> get_coordinates() async {
     final __result__ = await kAmapLocationFluttifyChannel.invokeMethod("AMapGeoFencePolygonRegion::get_coordinates", {'__this__': this});
     return (__result__ as List).cast<CLLocationCoordinate2D>();
   }

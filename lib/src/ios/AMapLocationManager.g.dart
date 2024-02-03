@@ -23,15 +23,15 @@ class AMapLocationManager extends NSObject  {
   //endregion
 
   //region creators
-  static Future<Future> create__({ bool init = true /* ios only */ }) async {
-    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapLocationManager', {'init': init});
+  static Future<AMapLocationManager> create__({ bool init = true /* ios only */ }) async {
+    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapLocationManager', {'init': init}) as Future<AMapLocationManager>;
   }
   
-  static Future<Future<List<AMapLocationManager>?>> create_batch__(int length, { bool init = true /* ios only */ }) async {
+  static Future<List<AMapLocationManager>> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    return kAmapLocationFluttifyChannel.invokeListMethod<AMapLocationManager>('ObjectFactory::create_batchAMapLocationManager', {'length': length, 'init': init});
+    return kAmapLocationFluttifyChannel.invokeListMethod<AMapLocationManager>('ObjectFactory::create_batchAMapLocationManager', {'length': length, 'init': init}) as Future<List<AMapLocationManager>>;
   }
   
   //endregion

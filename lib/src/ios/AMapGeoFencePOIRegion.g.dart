@@ -23,15 +23,15 @@ class AMapGeoFencePOIRegion extends AMapGeoFenceCircleRegion with NSCopying {
   //endregion
 
   //region creators
-  static Future<Future> create__({ bool init = true /* ios only */ }) async {
-    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapGeoFencePOIRegion', {'init': init});
+  static Future<AMapGeoFencePOIRegion> create__({ bool init = true /* ios only */ }) async {
+    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapGeoFencePOIRegion', {'init': init}) as Future<AMapGeoFencePOIRegion>;
   }
   
-  static Future<Future<List<AMapGeoFencePOIRegion>?>> create_batch__(int length, { bool init = true /* ios only */ }) async {
+  static Future<List<AMapGeoFencePOIRegion>> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    return kAmapLocationFluttifyChannel.invokeListMethod<AMapGeoFencePOIRegion>('ObjectFactory::create_batchAMapGeoFencePOIRegion', {'length': length, 'init': init});
+    return kAmapLocationFluttifyChannel.invokeListMethod<AMapGeoFencePOIRegion>('ObjectFactory::create_batchAMapGeoFencePOIRegion', {'length': length, 'init': init}) as Future<List<AMapGeoFencePOIRegion>>;
   }
   
   //endregion

@@ -23,15 +23,15 @@ class AMapGeoFenceDistrictRegion extends AMapGeoFenceRegion with NSCopying {
   //endregion
 
   //region creators
-  static Future<Future> create__({ bool init = true /* ios only */ }) async {
-    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapGeoFenceDistrictRegion', {'init': init});
+  static Future<AMapGeoFenceDistrictRegion> create__({ bool init = true /* ios only */ }) async {
+    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapGeoFenceDistrictRegion', {'init': init}) as Future<AMapGeoFenceDistrictRegion>;
   }
   
-  static Future<Future<List<AMapGeoFenceDistrictRegion>?>> create_batch__(int length, { bool init = true /* ios only */ }) async {
+  static Future<List<AMapGeoFenceDistrictRegion>> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    return kAmapLocationFluttifyChannel.invokeListMethod<AMapGeoFenceDistrictRegion>('ObjectFactory::create_batchAMapGeoFenceDistrictRegion', {'length': length, 'init': init});
+    return kAmapLocationFluttifyChannel.invokeListMethod<AMapGeoFenceDistrictRegion>('ObjectFactory::create_batchAMapGeoFenceDistrictRegion', {'length': length, 'init': init}) as Future<List<AMapGeoFenceDistrictRegion>>;
   }
   
   //endregion

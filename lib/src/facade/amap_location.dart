@@ -31,13 +31,13 @@ mixin _Community on _Holder {
         final context = await android_app_Application.get();
 
         // 创建定位客户端
-        _androidClient = (await com_amap_api_location_AMapLocationClient
-            .create__android_content_Context(context)) as com_amap_api_location_AMapLocationClient;
+        _androidClient = await com_amap_api_location_AMapLocationClient
+            .create__android_content_Context(context);
       },
       ios: (pool) async {
-        // assert(iosKey != null, '请设置iosKey!');
+        assert(iosKey != null, '请设置iosKey!');
         await AmapCore.init(iosKey);
-        _iosClient ??= (await AMapLocationManager.create__()) as AMapLocationManager?;
+        _iosClient = await AMapLocationManager.create__();
       },
     );
   }
@@ -88,8 +88,8 @@ mixin _Community on _Holder {
         };
 
         // 创建选项
-        final com_amap_api_location_AMapLocationClientOption options =
-            (await com_amap_api_location_AMapLocationClientOption.create__()) as com_amap_api_location_AMapLocationClientOption;
+        final options =
+            await com_amap_api_location_AMapLocationClientOption.create__();
         // 设置单次定位
         await options.setOnceLocation(true);
         // 设置定位模式
@@ -175,7 +175,7 @@ mixin _Community on _Holder {
                 street: await regeocode.get_street(),
                 streetNumber: await regeocode.get_number(),
                 aoiName: await regeocode.get_AOIName(),
-                accuracy:(await location.horizontalAccuracy)!,
+                accuracy: (await location.horizontalAccuracy)!,
                 speed: (await location.speed)!,
               ));
             }
@@ -198,7 +198,7 @@ mixin _Community on _Holder {
     int? interval,
     double? distanceFilter,
   }) async* {
-    _locationController = StreamController<Location>();
+    _locationController ??= StreamController<Location>();
 
     if (Platform.isAndroid) {
       assert(_androidClient != null,
@@ -233,8 +233,8 @@ mixin _Community on _Holder {
       };
 
       // 创建选项
-      final com_amap_api_location_AMapLocationClientOption options =
-          (await com_amap_api_location_AMapLocationClientOption.create__()) as com_amap_api_location_AMapLocationClientOption;
+      final options =
+          await com_amap_api_location_AMapLocationClientOption.create__();
       // 设置连续定位
       await options.setOnceLocation(false);
       // 设置定位模式
@@ -308,7 +308,7 @@ mixin _Community on _Holder {
       }
       _iosLocationDelegate!._onLocationChanged = (location, regeocode) async {
         _locationController!.add(Location(
-          address: await regeocode.get_formattedAddress(),
+          address: (await regeocode.get_formattedAddress())!,
           latLng: LatLng(
             (await location.coordinate.then((it) => it.latitude))!,
             (await location.coordinate.then((it) => it.longitude))!,
@@ -346,10 +346,10 @@ mixin _Community on _Holder {
 
         _androidLocationDelegate = null;
 
-        await _androidClient!.stopLocation();
+        await _androidClient?.stopLocation();
       },
       ios: (pool) async {
-        await _locationController!.close();
+        await _locationController?.close();
         _locationController = null;
 
         _iosLocationDelegate = null;
@@ -370,7 +370,7 @@ mixin _Community on _Holder {
           await manager?.requestAlwaysAuthorization();
         };
         await _iosClient!.set_delegate(
-          (_iosLocationDelegate?.._onRequireAlwaysAuth = onRequireAuth) as AMapLocationManagerDelegate,
+          _iosLocationDelegate!.._onRequireAlwaysAuth = onRequireAuth,
         );
       },
     );
@@ -411,8 +411,8 @@ mixin _Community on _Holder {
         await _androidClient?.disableBackgroundLocation(var1);
       },
       ios: (pool) async {
-        await _iosClient?.set_allowsBackgroundLocationUpdates(false);
-        await _iosClient?.set_pausesLocationUpdatesAutomatically(true);
+        await _iosClient!.set_allowsBackgroundLocationUpdates(false);
+        await _iosClient!.set_pausesLocationUpdatesAutomatically(true);
       },
     );
   }
@@ -424,10 +424,10 @@ mixin _Community on _Holder {
       final context = await android_app_Application.get();
 
       // 创建定位客户端
-      _androidClient ??= (await com_amap_api_location_AMapLocationClient
-          .create__android_content_Context(context)) as com_amap_api_location_AMapLocationClient?;
+      _androidClient ??= await com_amap_api_location_AMapLocationClient
+          .create__android_content_Context(context);
     } else if (Platform.isIOS) {
-      _iosClient ??= (await AMapLocationManager.create__()) as AMapLocationManager?;
+      _iosClient ??= await AMapLocationManager.create__();
     }
   }
 
@@ -512,11 +512,11 @@ mixin _Pro on _Holder {
 
     if (Platform.isAndroid) {
       final context = await android_app_Application.get();
-      _androidGeoFenceClient = (await com_amap_api_fence_GeoFenceClient
-          .create__android_content_Context(context)) as com_amap_api_fence_GeoFenceClient?;
+      _androidGeoFenceClient ??= await com_amap_api_fence_GeoFenceClient
+          .create__android_content_Context(context);
 
-      final com_amap_api_location_DPoint point = (await com_amap_api_location_DPoint.create__double__double(
-          center.latitude, center.longitude)) as com_amap_api_location_DPoint;
+      final point = await com_amap_api_location_DPoint.create__double__double(
+          center.latitude, center.longitude);
 
       await _androidGeoFenceClient!.addCircleGeoFence(
         activeActions.getActiveAction(),
@@ -525,7 +525,7 @@ mixin _Pro on _Holder {
         customId,
       );
     } else if (Platform.isIOS) {
-      _iosGeoFenceClient ??= (await AMapGeoFenceManager.create__()) as AMapGeoFenceManager?;
+      _iosGeoFenceClient ??= await AMapGeoFenceManager.create__();
       _iosLocationDelegate ??= _IOSLocationDelegate();
 
       await _iosGeoFenceClient!.set_delegate(
@@ -579,8 +579,8 @@ mixin _Pro on _Holder {
 
     if (Platform.isAndroid) {
       final context = await android_app_Application.get();
-      _androidGeoFenceClient ??= (await com_amap_api_fence_GeoFenceClient
-          .create__android_content_Context(context)) as com_amap_api_fence_GeoFenceClient?;
+      _androidGeoFenceClient ??= await com_amap_api_fence_GeoFenceClient
+          .create__android_content_Context(context);
 
       await _androidGeoFenceClient!.addPoiGeoFence(
         keyword: keyword,
@@ -591,7 +591,7 @@ mixin _Pro on _Holder {
         activeAction: activeActions.getActiveAction(),
       );
     } else if (Platform.isIOS) {
-      _iosGeoFenceClient ??= (await AMapGeoFenceManager.create__()) as AMapGeoFenceManager?;
+      _iosGeoFenceClient ??= await AMapGeoFenceManager.create__();
       _iosLocationDelegate ??= _IOSLocationDelegate();
 
       await _iosGeoFenceClient!.set_delegate(
@@ -608,10 +608,10 @@ mixin _Pro on _Holder {
           },
       );
 
-      await _iosGeoFenceClient
-          ?.set_activeActionX(activeActions.getActiveAction());
+      await _iosGeoFenceClient!
+          .set_activeActionX(activeActions.getActiveAction());
 
-      await _iosGeoFenceClient?.set_allowsBackgroundLocationUpdates(true);
+      await _iosGeoFenceClient!.set_allowsBackgroundLocationUpdates(true);
 
       await _iosGeoFenceClient!
           .addKeywordPOIRegionForMonitoringWithKeyword_POIType_city_size_customID(
@@ -645,11 +645,11 @@ mixin _Pro on _Holder {
 
     if (Platform.isAndroid) {
       final context = await android_app_Application.get();
-      _androidGeoFenceClient ??= (await com_amap_api_fence_GeoFenceClient
-          .create__android_content_Context(context)) as com_amap_api_fence_GeoFenceClient?;
+      _androidGeoFenceClient ??= await com_amap_api_fence_GeoFenceClient
+          .create__android_content_Context(context);
 
-      final List<com_amap_api_location_DPoint> _pointList = (await com_amap_api_location_DPoint
-          .create_batch__double__double(latitudeList, longitudeList)) as List<com_amap_api_location_DPoint>;
+      final _pointList = await com_amap_api_location_DPoint
+          .create_batch__double__double(latitudeList, longitudeList);
 
       await _androidGeoFenceClient!.addPolygonGeoFence(
         polygon: _pointList,
@@ -657,7 +657,7 @@ mixin _Pro on _Holder {
         activeAction: activeActions.getActiveAction(),
       );
     } else if (Platform.isIOS) {
-      _iosGeoFenceClient ??= (await AMapGeoFenceManager.create__()) as AMapGeoFenceManager?;
+      _iosGeoFenceClient ??= await AMapGeoFenceManager.create__();
       _iosLocationDelegate ??= _IOSLocationDelegate();
 
       await _iosGeoFenceClient!.set_delegate(
@@ -705,8 +705,8 @@ mixin _Pro on _Holder {
 
     if (Platform.isAndroid) {
       final context = await android_app_Application.get();
-      _androidGeoFenceClient ??= (await com_amap_api_fence_GeoFenceClient
-          .create__android_content_Context(context)) as com_amap_api_fence_GeoFenceClient?;
+      _androidGeoFenceClient ??= await com_amap_api_fence_GeoFenceClient
+          .create__android_content_Context(context);
 
       await _androidGeoFenceClient!.addDistrictGeoFence(
         keyword: keyword,
@@ -714,7 +714,7 @@ mixin _Pro on _Holder {
         activeAction: activeActions.getActiveAction(),
       );
     } else if (Platform.isIOS) {
-      _iosGeoFenceClient ??= (await AMapGeoFenceManager.create__()) as AMapGeoFenceManager?;
+      _iosGeoFenceClient ??= await AMapGeoFenceManager.create__();
       _iosLocationDelegate ??= _IOSLocationDelegate();
 
       await _iosGeoFenceClient!.set_delegate(
@@ -747,8 +747,8 @@ mixin _Pro on _Holder {
   /// 删除单个围栏
   Future<void> removeGeoFence(GeoFence geoFence) async {
     return platform(
-      android: (pool) => _androidGeoFenceClient!
-          .removeGeoFence__com_amap_api_fence_GeoFence(geoFence.androidModel!),
+      android: (pool) => _androidGeoFenceClient
+          !.removeGeoFence__com_amap_api_fence_GeoFence(geoFence.androidModel!),
       ios: (pool) =>
           _iosGeoFenceClient!.removeTheGeoFenceRegion(geoFence.iosModel!),
     );

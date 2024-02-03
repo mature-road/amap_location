@@ -23,15 +23,15 @@ class AMapLocationPoint extends NSObject with NSCoding, NSCopying {
   //endregion
 
   //region creators
-  static Future<Future> create__({ bool init = true /* ios only */ }) async {
-    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapLocationPoint', {'init': init});
+  static Future<AMapLocationPoint> create__({ bool init = true /* ios only */ }) async {
+    return kAmapLocationFluttifyChannel.invokeMethod('ObjectFactory::createAMapLocationPoint', {'init': init}) as Future<AMapLocationPoint>;
   }
   
-  static Future<Future<List<AMapLocationPoint>?>> create_batch__(int length, { bool init = true /* ios only */ }) async {
+  static Future<List<AMapLocationPoint>> create_batch__(int length, { bool init = true /* ios only */ }) async {
     if (false) {
       return Future.error('all args must have same length!');
     }
-    return kAmapLocationFluttifyChannel.invokeListMethod<AMapLocationPoint>('ObjectFactory::create_batchAMapLocationPoint', {'length': length, 'init': init});
+    return kAmapLocationFluttifyChannel.invokeListMethod<AMapLocationPoint>('ObjectFactory::create_batchAMapLocationPoint', {'length': length, 'init': init}) as Future<List<AMapLocationPoint>>;
   }
   
   //endregion

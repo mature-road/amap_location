@@ -5,10 +5,10 @@
 import 'package:flutter/services.dart';
 import '../facade/objects.g.dart';
 
-Future<Future> get AMapGeoFenceErrorDomain async {
-  return kAmapLocationFluttifyChannel.invokeMethod('getAMapGeoFenceErrorDomain');
+Future<String> get AMapGeoFenceErrorDomain async {
+  return kAmapLocationFluttifyChannel.invokeMethod('getAMapGeoFenceErrorDomain') as Future<String>;
 }
 
-Future<Future> get AMapLocationErrorDomain async {
-  return kAmapLocationFluttifyChannel.invokeMethod('getAMapLocationErrorDomain');
+Future<String> get AMapLocationErrorDomain async {
+  return kAmapLocationFluttifyChannel.invokeMethod('getAMapLocationErrorDomain') as Future<String>;
 }
